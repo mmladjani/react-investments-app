@@ -1,3 +1,6 @@
+## App preview
+### App preview is available on https://react-investments-app.vercel.app/
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
