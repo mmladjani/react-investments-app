@@ -12,16 +12,14 @@ function App() {
     appName: 'appName',
     appVersion: '1.0.0',
     loginRetryFn: () => {
-      return recharge.auth.sendPasswordlessCodeAppProxy('mmiljus@rechargeapps.com', {
-        send_email: true,
-        send_sms: true,
-      }).then(session => {
+      return recharge.auth.loginShopifyAppProxy().then(session => {
         // do anything you want with the session here
+        // return session
         console.log(session, 'session');
         return session;
       });
-    }
-  })
+    },
+  });
 
   const [userInputData, setUserInputData] = useState(null);
 
