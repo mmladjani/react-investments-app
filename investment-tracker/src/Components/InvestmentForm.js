@@ -51,6 +51,7 @@ const InvestmentForm = (props) => {
 
     const resetFormHandler = () => {
         setUserInput(initialDataValue)
+        props.getFormData(null);
     }
 
     return (

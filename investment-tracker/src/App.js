@@ -5,11 +5,30 @@ import { useState } from 'react';
 
 function App() {
 
+  recharge.init({
+    storeIdentifier: 'storeIdentifier', // On Shopify this should be your myshopify.com domain
+    // required for Storefront API access
+    storefrontAccessToken: 'strfnt_554203ce53bad182ba44191d756e3cfab233446a5a396bf366e4bc2ee8eaaf7a',
+    appName: 'appName',
+    appVersion: '1.0.0',
+    loginRetryFn: () => {
+      return recharge.auth.sendPasswordlessCodeAppProxy('mmiljus@rechargeapps.com', {
+        send_email: true,
+        send_sms: true,
+      }).then(session => {
+        // do anything you want with the session here
+        console.log(session, 'session');
+        return session;
+      });
+    }
+  });
+
   const [userInputData, setUserInputData] = useState(null);
 
   const noDataToShow = <p className='no-data'>There is no data to show...</p>;
 
   const calculateHandler = (userInput) => {
+    console.log(userInput)
     setUserInputData(userInput);
   };
 
