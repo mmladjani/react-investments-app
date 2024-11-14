@@ -21,7 +21,7 @@ function App() {
         return session;
       });
     }
-  });
+  })
 
   const [userInputData, setUserInputData] = useState(null);
 
